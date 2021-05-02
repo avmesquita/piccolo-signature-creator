@@ -1,0 +1,76 @@
+<div class="p-grid">
+  <div style="padding-left: 5px;padding-right: 5px;">
+      <p-card header="Parameters" styleClass="p-card-shadow">
+        <div>
+          <label>Name</label><br>
+          <input pInputText [(ngModel)]="name" />
+        </div>
+        <br>
+        <div>
+          <label>Phone</label><br>
+          <input pInputText [(ngModel)]="phone" />
+        </div>
+        <br>
+        <div>
+          <label>Mail</label><br>
+          <input pInputText [(ngModel)]="email" />
+        </div>
+        <br>
+        <div>
+          <label>Facebook</label><br>
+          <input pInputText [(ngModel)]="this.facebook" />
+        </div>
+
+        <div>
+          <label>Insgram</label><br>
+          <input pInputText [(ngModel)]="this.instagram" />
+        </div>
+        <div>
+          <label>Youtube</label><br>
+          <input pInputText [(ngModel)]="this.youtube" />
+        </div>
+        <div>
+          <label>Large Image</label><br>
+          <p-fileUpload customUpload="true" name="mainFile[]" multiple="no" mode="basic" accept="image/*" [auto]="true" chooseLabel="Browse" (uploadHandler)="onMainImageUpload($event)" ></p-fileUpload>
+        </div>
+
+        <br>
+      </p-card>
+  </div>
+
+  <div style="padding-top:15px;padding-left: 5px;padding-right: 5px;">
+    <p-card header="Template" styleClass="p-card-shadow">
+      <div>
+        <p-fileUpload customUpload="true" mode="basic" multiple="no" accept="text/html" name="templateFile[]" [auto]="true" chooseLabel="Browse" (uploadHandler)="loadTemplate($event)" ></p-fileUpload>
+      </div>
+      <div>
+        <textarea  [rows]="20" pInputTextarea autoResize="autoResize" [(ngModel)]="template" style="width: 100%;overflow-y: scroll!important;"></textarea>
+      </div>
+    </p-card>
+  </div>
+  <div style="padding-top:15px;padding-left: 5px;padding-right: 5px;">
+    <p-card styleClass="p-card-shadow">
+      <div>
+        <button pButton type="button" icon="pi pi-cog" label="Generate" class="ui-button-raised" (click)="regenerateSignature()"></button>
+      </div>
+    </p-card>
+ </div>
+
+  <div style="padding-top:15px;padding-left: 5px;padding-right: 5px;">
+    <p-card header="Signature Preview" styleClass="p-card-shadow">
+      <div [innerHTML]="preview">
+      </div>
+    </p-card>
+  </div>
+
+  <div style="padding-top:15px;padding-left: 5px;padding-right: 5px;">
+    <p-card header="Code" styleClass="p-card-shadow">
+      <div style="float: right;"></div>
+      <button pButton type="button" icon="pi pi-copy" label="Copy from Code" (click)="copyInputMessage(preview)" class="ui-button-raised" value="click to copy" style="min-width:200px;"></button>
+      <div>
+        <textarea  [rows]="20" pInputTextarea autoResize="autoResize" #inputMessage [(ngModel)]="preview" style="width: 100%;overflow-y: scroll!important;"></textarea>
+      </div>
+    </p-card>
+  </div>
+</div>
+<p-scrollTop></p-scrollTop>
