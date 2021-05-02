@@ -1,38 +1,41 @@
 <div class="p-grid">
   <div style="padding-left: 5px;padding-right: 5px;">
       <p-card header="Parameters" styleClass="p-card-shadow">
-        <div>
-          <label>Name</label><br>
-          <input pInputText [(ngModel)]="name" />
-        </div>
-        <br>
-        <div>
-          <label>Phone</label><br>
-          <input pInputText [(ngModel)]="phone" />
-        </div>
-        <br>
-        <div>
-          <label>Mail</label><br>
-          <input pInputText [(ngModel)]="email" />
-        </div>
-        <br>
-        <div>
-          <label>Facebook</label><br>
-          <input pInputText [(ngModel)]="this.facebook" />
-        </div>
+        <div class="p-col-12">
 
-        <div>
-          <label>Insgram</label><br>
-          <input pInputText [(ngModel)]="this.instagram" />
-        </div>
-        <div>
-          <label>Youtube</label><br>
-          <input pInputText [(ngModel)]="this.youtube" />
-        </div>
-        <div>
-          <label>Large Image</label><br>
-          <p-fileUpload customUpload="true" name="mainFile[]" multiple="no" mode="basic" accept="image/*" [auto]="true" chooseLabel="Browse" (uploadHandler)="onMainImageUpload($event)" ></p-fileUpload>
-        </div>
+          <div class="p-col-6">
+            <label>Name</label><br>
+            <input pInputText [(ngModel)]="name" style="width:300px;" />
+          </div>
+
+          <div class="p-col-6">
+            <label>Phone</label><br>
+            <input pInputText [(ngModel)]="phone" style="width:300px;" />
+          </div>
+
+          <div class="p-col-6">
+            <label>Mail</label><br>
+            <input pInputText [(ngModel)]="email" style="width:300px;" />
+          </div>
+
+          <div class="p-col-6">
+            <label>Facebook</label><br>
+            <input pInputText [(ngModel)]="this.facebook" style="width:300px;" />
+          </div>
+
+          <div class="p-col-6">
+            <label>Insgram</label><br>
+            <input pInputText [(ngModel)]="this.instagram" style="width:300px;" />
+          </div>
+          <div class="p-col-6">
+            <label>Youtube</label><br>
+            <input pInputText [(ngModel)]="this.youtube"  style="width:300px;"/>
+          </div>
+          <div class="p-col-6">
+            <label>Large Image</label><br>
+            <p-fileUpload customUpload="true" name="mainFile[]" multiple="no" mode="basic" accept="image/*" [auto]="true" chooseLabel="Browse" (uploadHandler)="onMainImageUpload($event)" ></p-fileUpload>
+          </div>
+          </div>
 
         <br>
       </p-card>
@@ -58,15 +61,19 @@
 
   <div style="padding-top:15px;padding-left: 5px;padding-right: 5px;">
     <p-card header="Signature Preview" styleClass="p-card-shadow">
+      <div>
+        <button pButton type="button" icon="pi pi-copy" label="Copy Signature HTML Code to Clipboard" (click)="copyInputMessage(preview)" class="ui-button-raised" value="click to copy" style="min-width:200px;"></button>
+        </div>
       <div [innerHTML]="preview">
       </div>
     </p-card>
   </div>
 
-  <div style="padding-top:15px;padding-left: 5px;padding-right: 5px;">
+  <div style="padding-top:15px;padding-left: 5px;padding-right: 5px;display: none;">
     <p-card header="Code" styleClass="p-card-shadow">
-      <div style="float: right;"></div>
+      <div>
       <button pButton type="button" icon="pi pi-copy" label="Copy from Code" (click)="copyInputMessage(preview)" class="ui-button-raised" value="click to copy" style="min-width:200px;"></button>
+      </div>
       <div>
         <textarea  [rows]="20" pInputTextarea autoResize="autoResize" #inputMessage [(ngModel)]="preview" style="width: 100%;overflow-y: scroll!important;"></textarea>
       </div>

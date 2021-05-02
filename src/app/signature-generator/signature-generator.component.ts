@@ -8,7 +8,6 @@ import { MessageService } from 'primeng/api';
 })
 export class SignatureGeneratorComponent implements OnInit {
 
-  //mainImageFile: any[] = [];
   mainImageBase64: any;
 
   preview: string;
@@ -34,7 +33,6 @@ export class SignatureGeneratorComponent implements OnInit {
   onMainImageUpload(event) {
     debugger;
     for(let file of event.files) {
-      //this.mainImageFile.push(file);
       let me = this;
       let reader = new FileReader();
       reader.readAsDataURL(file);
@@ -45,14 +43,6 @@ export class SignatureGeneratorComponent implements OnInit {
   }
 
   regenerateSignature(): void {
-      /*
-
-      this.preview = "<h2>" + this.name + "</h2>" +
-                    "Phone: " + this.phone + "<br>" +
-                    "Mail: " + this.email + "<br>" +
-                    "<img src='" + this.mainImageBase64 + "'>";
-      */
-     debugger;
       let k = this.template;
 
       k = k.replace(/##name##/gi,this.name);
@@ -73,7 +63,6 @@ export class SignatureGeneratorComponent implements OnInit {
 
   loadTemplate(event): void {
     for(let file of event.files) {
-      //this.mainImageFile.push(file);
       let me = this;
       let reader = new FileReader();
       reader.readAsText(file);
