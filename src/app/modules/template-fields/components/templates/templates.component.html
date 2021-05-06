@@ -1,0 +1,8 @@
+<div style="padding-bottom: 20px;">
+  <p-fileUpload customUpload="true" mode="basic" multiple="no" accept="text/html" name="templateFile[]" [auto]="true" chooseLabel="Load Your Template" (uploadHandler)="engine.loadTemplate($event)" ></p-fileUpload>
+</div>
+<div>
+  <textarea  [rows]="20" pInputTextarea
+  autoResize="autoResize"
+  [(ngModel)]="engine.template" style="width: 100%;overflow-y: scroll!important;"></textarea>
+</div>

@@ -1,0 +1,31 @@
+<div style="min-height: 500px;">
+    <div style="padding-bottom: 20px;">
+        <button pButton type="button" icon="pi pi-cog" label="Generate" class="ui-button-raised" (click)="engine.regenerateSignature()"></button>
+        &nbsp;
+        <div style="float:right">
+            <button pButton type="button"
+                    icon="pi pi-copy"
+                    label="Copy Generated Code to Clipboard"
+                    (click)="copyInputMessage(engine.preview)"
+                    class="ui-button-raised"
+                    value="click to copy" style="min-width:200px;">
+            </button>
+        </div>
+     </div>
+     <ng-container *ngIf="isShowCode">
+      <div>
+        <h5>CODE</h5>
+        <textarea
+          rows="20"
+          pInputTextarea #inputMessage
+          [(ngModel)]="engine.preview"
+          style="width:100%;height: 100%;overflow-y: scroll;">
+        </textarea>
+    </div>
+     </ng-container>
+    <div>
+        <h5>PREVIEW</h5>
+        <div [innerHTML]="engine.preview" style="min-height:250px;border: 1px solid white;">
+        </div>
+    </div>
+</div>

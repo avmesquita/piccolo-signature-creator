@@ -1,0 +1,72 @@
+<div style="min-height: 500px;">
+
+  <div style="padding-bottom: 40px;">
+    <p-fileUpload customUpload="true"
+    name="mainFile[]"
+    multiple="no"
+    mode="basic"
+    accept="application/json"
+    [auto]="true"
+    chooseLabel="Load Your Parameters"
+    (uploadHandler)="loadParameters($event)"
+    style="float: left;">
+    </p-fileUpload>
+  &nbsp;
+    <div style="float:right">
+      <button pButton type="button" icon="pi pi-cog" label="Load Default Parameters" class="ui-button-raised" (click)="loadDefault()">
+      </button>
+      &nbsp;
+      <button pButton type="button"
+      icon="pi pi-align-justify"
+      label="Parameters Editor"
+      class="ui-button-raised"
+      (click)="openEditor()">
+      </button>
+
+    </div>
+ </div>
+
+ <div>
+      <!--<h5>Engine</h5>-->
+      <app-custom-fields-engine></app-custom-fields-engine>
+ </div>
+</div>
+
+<!--
+<h5>Old Engine</h5>
+<div class="p-grid">
+  <div class="p-col">
+      <div class="p-col-6">
+        <label>Name</label><br>
+        <input pInputText [(ngModel)]="this.templateFieldsService.name" style="width:300px;" />
+      </div>
+      <div class="p-col-6">
+        <label>Phone</label><br>
+        <input pInputText [(ngModel)]="templateFieldsService.phone" style="width:300px;" />
+      </div>
+      <div class="p-col-6">
+        <label>Mail</label><br>
+        <input pInputText [(ngModel)]="templateFieldsService.email" style="width:300px;" />
+      </div>
+  </div>
+  <div class="p-col">
+      <div class="p-col-6">
+        <label>Facebook</label><br>
+        <input pInputText [(ngModel)]="templateFieldsService.facebook" style="width:300px;" />
+      </div>
+
+      <div class="p-col-6">
+        <label>Insgram</label><br>
+        <input pInputText [(ngModel)]="templateFieldsService.instagram" style="width:300px;" />
+      </div>
+      <div class="p-col-6">
+        <label>Youtube</label><br>
+        <input pInputText [(ngModel)]="templateFieldsService.youtube"  style="width:300px;"/>
+      </div>
+      <div class="p-col-6">
+        <label>Large Image</label><br>
+        <p-fileUpload customUpload="true" name="mainFile[]" multiple="no" mode="basic" accept="image/*" [auto]="true" chooseLabel="Browse" (uploadHandler)="templateFieldsService.onMainImageUpload($event)" ></p-fileUpload>
+      </div>
+  </div>
+</div>
+-->

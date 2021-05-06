@@ -1,0 +1,34 @@
+<div>
+  <div style="padding-bottom: 20px;">
+    <button pButton type="button" label="New Field" title="New Field" icon="pi pi-plus" class="ui-button-primary" (click)="newField()"></button>&nbsp;
+  </div>
+  <table style="width: 100%;">
+    <THEAD>
+    <tr style="background-color: gray;">
+      <th></th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Metadata</th>
+      <th>Value</th>
+    </tr>
+    </THEAD>
+    <tbody>
+      <ng-container *ngFor="let field of engine.fields" >
+        <tr>
+          <td>
+            <button pButton type="button" title="Edit" icon="pi pi-pencil" class="ui-button-raised p-button-warning" (click)="editField(field)"></button>&nbsp;
+            <button pButton type="button" title="Delete" icon="pi pi-trash" class="ui-button-raised p-button-danger" (click)="deleteField(field)"></button>
+          </td>
+          <td><input pInputText value="{{ field.name }}" /></td>
+          <td>{{ field.type.name }}</td>
+          <td>{{ field.metadata }}</td>
+          <td><input pInputText value="{{ field.value }}" /></td>
+        </tr>
+      </ng-container>
+  </tbody>
+  </table>
+  <div style="float: right;">
+    <button pButton type="button" label="Close" title="Close" icon="" class="ui-button-primary" (click)="close()"></button>&nbsp;
+  </div>
+</div>
+
