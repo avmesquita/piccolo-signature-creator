@@ -1,6 +1,27 @@
 <div>
   <div style="padding-bottom: 20px;">
     <button pButton type="button" label="New Field" title="New Field" icon="pi pi-plus" class="ui-button-primary" (click)="newField()"></button>&nbsp;
+
+
+    <div>
+      <ng-container *ngIf="selectedField !== null">
+        <table>
+        <tr>
+          <td><input pInputText value="{{ selectedField.name }}" (change)="metadataCalc($event)" /></td>
+          <td>
+            <p-dropdown [options]="engine.fieldtypes" [(ngModel)]="dropdownSelected" optionLabel="name" (change)="changeDropdown($event)"></p-dropdown>
+          </td>
+          <td>{{ selectedField.metadata }} </td>
+          <td>
+            <button pButton type="button" title="Incluir" icon="pi pi-save" class="ui-button-raised p-button-success" (click)="incluir()"></button>
+            &nbsp;
+            <button pButton type="button" title="Cancelar" icon="pi pi-ban" class="ui-button-raised p-button-danger" (click)="cancelar()"></button>
+          </td>
+        </tr>
+        </table>
+      </ng-container>
+    </div>
+
   </div>
   <table style="width: 100%;">
     <THEAD>
@@ -8,21 +29,23 @@
       <th></th>
       <th>Name</th>
       <th>Type</th>
-      <th>Metadata</th>
       <th>Value</th>
+      <th>Metadata</th>
     </tr>
     </THEAD>
     <tbody>
       <ng-container *ngFor="let field of engine.fields" >
         <tr>
           <td>
-            <button pButton type="button" title="Edit" icon="pi pi-pencil" class="ui-button-raised p-button-warning" (click)="editField(field)"></button>&nbsp;
+            <!--<button pButton type="button" title="Edit" icon="pi pi-pencil" class="ui-button-raised p-button-warning" (click)="editField(field)"></button>&nbsp;-->
             <button pButton type="button" title="Delete" icon="pi pi-trash" class="ui-button-raised p-button-danger" (click)="deleteField(field)"></button>
           </td>
           <td><input pInputText value="{{ field.name }}" /></td>
-          <td>{{ field.type.name }}</td>
-          <td>{{ field.metadata }}</td>
+          <td>
+            {{ field.type.name }}
+          </td>
           <td><input pInputText value="{{ field.value }}" /></td>
+          <td>{{ field.metadata }}</td>
         </tr>
       </ng-container>
   </tbody>

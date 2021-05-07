@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { IMagicFieldType } from '../entities/imagic-field-type.interface';
 import { IMagicField } from '../entities/imagic-field.interface';
+import { Mock } from '../entities/mock-data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +10,7 @@ import { IMagicField } from '../entities/imagic-field.interface';
 export class TemplateFieldsService {
 
   fields: IMagicField[] = [];
+  fieldtypes: IMagicFieldType[] = [];
 
   template: any;
   preview: string;
@@ -33,7 +36,7 @@ export class TemplateFieldsService {
                     "Mail: <a href='mailto:##mail##'>##mail##</a><br>\n" +
                     "<img src='##image-large##'>\n" ;
 
-
+    this.fieldtypes = this.getAllFieldType();
    }
 
   onMainImageUpload(event) {
@@ -78,6 +81,11 @@ export class TemplateFieldsService {
 
   toggleCode(): void {
     this.showsCode = !this.showsCode;
+  }
+
+  getAllFieldType(): IMagicFieldType[] {
+    const mock = new Mock();
+    return mock.fieldtypes;
   }
 
 

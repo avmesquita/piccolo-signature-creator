@@ -1,3 +1,4 @@
+import { IMagicFieldType } from "./imagic-field-type.interface";
 import { IMagicField } from "./imagic-field.interface";
 
 export class Mock {
@@ -69,11 +70,20 @@ export class Mock {
     }
 ];
 
-
-
-
-
-
-
-
+    fieldtypes: IMagicFieldType[] =
+    [
+      {
+        name: 'Text',
+        realtype: 'text'
+      },
+      {
+        name: 'Image File',
+        realtype: 'file'
+      },
+      {
+        name: 'Number',
+        realtype: 'number'
+      }
+    ];
 }
+

@@ -1,6 +1,16 @@
 <div style="min-height: 500px;">
-
-  <div style="padding-bottom: 40px;">
+  <div style="padding-bottom: 20px;">
+    <div style="float:right">
+      <button pButton type="button" icon="pi pi-cog" label="Load Default Parameters" class="ui-button-raised" (click)="loadDefault()">
+      </button>
+        &nbsp;
+      <button pButton type="button"
+      icon="pi pi-align-justify"
+      label="Parameters Editor"
+      class="ui-button-raised"
+      (click)="openEditor()">
+      </button>
+    </div>
     <p-fileUpload customUpload="true"
     name="mainFile[]"
     multiple="no"
@@ -11,20 +21,7 @@
     (uploadHandler)="loadParameters($event)"
     >
     </p-fileUpload>
-  &nbsp;
-    <div style="float:right">
-      <button pButton type="button" icon="pi pi-cog" label="Load Default Parameters" class="ui-button-raised" (click)="loadDefault()">
-      </button>
-      &nbsp;
-      <button pButton type="button"
-      icon="pi pi-align-justify"
-      label="Parameters Editor"
-      class="ui-button-raised"
-      (click)="openEditor()">
-      </button>
-
-    </div>
- </div>
+   </div>
 
  <div>
       <!--<h5>Engine</h5>-->

@@ -45,7 +45,7 @@ export class ParametersComponent implements OnInit {
       },
       closeOnEscape: false,
       header: 'Parameters Editor',
-      width: '40%'
+      /*width: '80%'*/
     });
 
   }

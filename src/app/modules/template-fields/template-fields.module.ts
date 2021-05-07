@@ -19,6 +19,11 @@ import { ParametersEditorComponent } from './components/parameters-editor/parame
 import { ConfirmationService } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
+
+
 
 @NgModule({
   imports: [
@@ -31,7 +36,10 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     HttpClientModule,
     NgprimeModule,
     ScrollTopModule,
-    ClipboardModule
+    ClipboardModule,
+    InputTextModule,
+    InputNumberModule,
+    DropdownModule
   ],
   providers: [
     TemplateFieldsService,
