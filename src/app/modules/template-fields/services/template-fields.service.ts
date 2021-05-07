@@ -50,29 +50,20 @@ export class TemplateFieldsService {
 
   regenerateSignature(): void {
       let k = this.template;
-
-      debugger;
       this.fields.forEach(element => {
-        k = k.replace(/element.metadata/gi,element.value);
+        const replaceFactor = element.metadata;
+        k = k.replaceAll(replaceFactor,element.value);
       });
-
-      k = k.replace(/##name##/gi,this.name);
-      k = k.replace(/##phone##/gi,this.phone);
-      k = k.replace(/##mail##/gi,this.email);
-      k = k.replace(/##facebook##/gi,this.facebook);
-      k = k.replace(/##instagram##/gi,this.instagram);
-      k = k.replace(/##youtube##/gi,this.youtube);
-      k = k.replace(/##image-large##/gi,this.mainImageBase64);
       this.preview = k;
   }
 
-  /*
+
   copyInputMessage(inputElement){
     //const inputElement = this.preview;
     inputElement.select();
     document.execCommand('copy');
     inputElement.setSelectionRange(0, 0);
-  }*/
+  }
 
   loadTemplate(event): void {
     for(let file of event.files) {

@@ -3,10 +3,11 @@
         <button pButton type="button" icon="pi pi-cog" label="Generate" class="ui-button-raised" (click)="engine.regenerateSignature()"></button>
         &nbsp;
         <div style="float:right">
+            <button pButton type="button" icon="pi pi-" label="Toggle Code" class="ui-button-raised" (click)="toggleCode()"></button>&nbsp;
             <button pButton type="button"
                     icon="pi pi-copy"
                     label="Copy Generated Code to Clipboard"
-                    (click)="copyInputMessage(engine.preview)"
+                    [cdkCopyToClipboard]="copyInputMessage()"
                     class="ui-button-raised"
                     value="click to copy" style="min-width:200px;">
             </button>

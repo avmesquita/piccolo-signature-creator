@@ -18,6 +18,7 @@ import { CustomFieldsDrawComponent } from './components/custom-fields-draw/custo
 import { ParametersEditorComponent } from './components/parameters-editor/parameters-editor.component';
 import { ConfirmationService } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
     TabViewModule,
     HttpClientModule,
     NgprimeModule,
-    ScrollTopModule
+    ScrollTopModule,
+    ClipboardModule
   ],
   providers: [
     TemplateFieldsService,
