@@ -22,7 +22,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/assets/images"
+              "src/assets/images",
+              "src/web.config"
             ],
             "styles": [
               "primeng/resources/themes/vela-purple/theme.css",
