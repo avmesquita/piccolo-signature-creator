@@ -6,4 +6,15 @@ export class MagicField implements IMagicField {
   type: IMagicFieldType;
   metadata: string;
   value: any;
+
+  constructor() {
+    this.name = "";
+    this.type = {
+      name: "Text",
+      realtype: "text"
+    };
+    this.metadata = "##" + this.name + "##";
+    this.value = null;
+
+  }
 }

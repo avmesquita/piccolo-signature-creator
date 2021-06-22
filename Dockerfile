@@ -14,4 +14,6 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY nginx.conf /etc/nginx/conf.d/nginx.conf
 COPY nginx.conf /etc/nginx/sites-enabled/nginx.conf
 COPY .htaccess /usr/share/nginx/html
+COPY routes.json /usr/share/nginx/html
+COPY web.config /usr/share/nginx/html
 COPY --from=build /usr/src/app/dist/signature /usr/share/nginx/html

@@ -4,14 +4,14 @@
 
 
     <div>
-      <ng-container *ngIf="selectedField !== null">
+      <ng-container *ngIf="this.engine.newField !== null">
         <table>
         <tr>
-          <td><input pInputText value="{{ selectedField.name }}" (change)="metadataCalc($event)" /></td>
+          <td><input pInputText value="{{ this.engine.newField.name }}" (change)="metadataCalc($event)" /></td>
           <td>
             <p-dropdown [options]="engine.fieldtypes" [(ngModel)]="dropdownSelected" optionLabel="name" (change)="changeDropdown($event)"></p-dropdown>
           </td>
-          <td>{{ selectedField.metadata }} </td>
+          <td>{{ this.engine.newField.metadata }} </td>
           <td>
             <button pButton type="button" title="Incluir" icon="pi pi-save" class="ui-button-raised p-button-success" (click)="incluir()"></button>
             &nbsp;
@@ -40,11 +40,11 @@
             <!--<button pButton type="button" title="Edit" icon="pi pi-pencil" class="ui-button-raised p-button-warning" (click)="editField(field)"></button>&nbsp;-->
             <button pButton type="button" title="Delete" icon="pi pi-trash" class="ui-button-raised p-button-danger" (click)="deleteField(field)"></button>
           </td>
-          <td><input pInputText value="{{ field.name }}" /></td>
+          <td>{{ field.name }}</td>
           <td>
             {{ field.type.name }}
           </td>
-          <td><input pInputText value="{{ field.value }}" /></td>
+          <td><input pInputText [(ngModel)]="field.value" /></td>
           <td>{{ field.metadata }}</td>
         </tr>
       </ng-container>

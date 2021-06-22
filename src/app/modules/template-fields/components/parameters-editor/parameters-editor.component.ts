@@ -11,7 +11,7 @@ import { TemplateFieldsService } from '../../services/template-fields.service';
 })
 export class ParametersEditorComponent implements OnInit {
 
-  selectedField: IMagicField = null;
+  /*selectedField: IMagicField = null;*/
 
   dropdownSelected: any;
 
@@ -24,7 +24,7 @@ export class ParametersEditorComponent implements OnInit {
 
   newField(): void {
     debugger;
-    this.selectedField = new MagicField();
+    this.engine.newField = new MagicField();
   }
 
   editField(field: IMagicField): void {
@@ -47,32 +47,32 @@ export class ParametersEditorComponent implements OnInit {
   }
 
   metadataCalc(event): void {
-    if (this.selectedField) {
-      this.selectedField.metadata = '##' + event.target.value + '##';
-      this.selectedField.name = event.target.value;
+    if (this.engine.newField) {
+      this.engine.newField.metadata = '##' + event.target.value + '##';
+      this.engine.newField.name = event.target.value;
     }
   }
 
   changeDropdown(event): void {
     debugger;
-    this.selectedField.type = event.target.value;
+    this.engine.newField.type = event.target.value;
   }
 
   incluir(): void {
     debugger;
-    if (this.selectedField){
+    if (this.engine.newField){
       const model = new MagicField();
-      model.name = this.selectedField.name;
+      model.name = this.engine.newField.name;
       model.value = "";
-      model.metadata = this.selectedField.metadata;
+      model.metadata = this.engine.newField.metadata;
       model.type = this.dropdownSelected;
       this.engine.fields.push(model);
-      this.selectedField = null;
+      this.engine.newField = null;
     }
   }
 
   cancelar(): void {
-    this.selectedField = null;
+    this.engine.newField = null;
   }
 
 }

@@ -1,13 +1,15 @@
 <ng-container *ngIf="field.type.realtype === 'text'">
   <div class="p-col-6">
-    <label>{{ capitalizeFirstLetter(field.name) }}</label><br>
+    <label>{{ capitalizeFirstLetter(field.name) }}</label>&nbsp;
+    ({{ field.metadata }})<br>
     <input pInputText [(ngModel)]="field.value" style="width:300px;" />
   </div>
 </ng-container>
 
 <ng-container *ngIf="field.type.realtype === 'file'">
   <div class="p-col-6">
-    <label>File</label><br>
+    <label>File</label>&nbsp;
+    ({{ field.metadata }})<br>
     <p-fileUpload customUpload="true" name="mainFile[]" multiple="no" mode="basic" accept="image/*" [auto]="true" chooseLabel="Browse" (uploadHandler)="onMainImageUpload($event)" ></p-fileUpload>
   </div>
 </ng-container>

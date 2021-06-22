@@ -12,6 +12,8 @@ export class TemplateFieldsService {
   fields: IMagicField[] = [];
   fieldtypes: IMagicFieldType[] = [];
 
+  newField: IMagicField = null;
+
   template: any;
   preview: string;
   parameters: any;
