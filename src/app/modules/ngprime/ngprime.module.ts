@@ -37,7 +37,6 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { DividerModule } from 'primeng/divider';
 import { AccordionModule } from 'primeng/accordion';
 import { InputMaskModule } from 'primeng/inputmask';
-import { CaptchaModule } from 'primeng/captcha';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { TooltipModule } from 'primeng/tooltip';
@@ -86,8 +85,7 @@ import {TabMenuModule} from 'primeng/tabmenu';
     AvatarGroupModule,
     DividerModule,
     AccordionModule,
-    InputMaskModule,
-    CaptchaModule,
+    InputMaskModule,    
     ScrollTopModule,
     KeyFilterModule,
     TooltipModule,
