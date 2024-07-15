@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TemplateFieldsComponent } from './components/template-fields/template-fields.component';
 import { ParametersComponent } from './components/parameters/parameters.component';
@@ -22,8 +22,6 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
-
-
 
 @NgModule({
   imports: [
@@ -64,9 +62,6 @@ declarations: [
   CustomFieldsEngineComponent,
   CustomFieldsDrawComponent,
   ParametersEditorComponent,
-],
-  /*
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
-  */
+]
 })
 export class TemplateFieldsModule { }

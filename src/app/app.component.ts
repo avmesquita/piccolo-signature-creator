@@ -7,8 +7,6 @@ import { PrimeNGConfig } from 'primeng/api';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'signature';
-
   constructor(private primengConfig: PrimeNGConfig) {
       this.primengConfig.ripple = true;
   }

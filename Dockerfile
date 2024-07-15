@@ -1,19 +1,41 @@
-### STAGE 1: Build ###
-FROM node:15.14.0-alpine3.10 AS build
-WORKDIR /usr/src/app
-COPY package.json package-lock.json ./
-RUN npm install -g @angular/cli
-RUN npm install -g @angular-devkit/build-angular
-RUN npm install
-COPY . .
-RUN npm run build-prod
+### STAGE 1: BUILDER ###
+ARG NODE_VERSION=18.16.0
+ARG ALPINE_VERSION=3.17.1
 
-### STAGE 2: Run ###
-FROM nginx:1.19.10-alpine
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY nginx.conf /etc/nginx/conf.d/nginx.conf
-COPY nginx.conf /etc/nginx/sites-enabled/nginx.conf
-COPY .htaccess /usr/share/nginx/html
-COPY routes.json /usr/share/nginx/html
-COPY web.config /usr/share/nginx/html
-COPY --from=build /usr/src/app/dist/signature /usr/share/nginx/html
+FROM node:${NODE_VERSION}-alpine AS node
+
+FROM alpine:${ALPINE_VERSION} as builder
+
+COPY --from=node /usr/lib /usr/lib
+COPY --from=node /usr/local/lib /usr/local/lib
+COPY --from=node /usr/local/include /usr/local/include
+COPY --from=node /usr/local/bin /usr/local/bin
+
+RUN npm install -g yarn --force
+
+RUN mkdir -p /ng-app/dist/signature
+
+WORKDIR /ng-app
+
+COPY package.json package-lock.json ./
+
+#RUN yarn add @angular/cli@17 --global
+RUN npm install -g @angular/cli@17.3.4
+
+RUN npm install --force
+
+COPY . .
+
+RUN yarn run build
+
+### STAGE 2: SETUP ###
+
+FROM nginx:1.14.1-alpine
+
+COPY --from=builder /ng-app/dist/signature /usr/share/nginx/html
+
+# CONFIGURE NGINX
+COPY --from=builder /ng-app/dist/signature/nginx.conf /etc/nginx/nginx.conf
+
+CMD ["nginx", "-g", "daemon off;"]
+
